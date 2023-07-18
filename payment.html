@@ -1,0 +1,203 @@
+<div class="formBuy">
+	<div class="formBuy__info">
+		<div class="formBuy__title">
+		</div>
+		<div class="formBuy__repeat formBuy--repeat">
+			<p class="formBuy--repeat__subtitle">
+				Не пришел билет, закажите:
+			</p>
+ <a href="javascript:;" data-modal="callBack" class="formBuy--repeat__title">Повторную отправку</a>
+		</div>
+	</div>
+	<div class="modal micromodal-slide" id="callBack" aria-hidden="true">
+		<div class="modal__overlay" tabindex="-1" data-modal-close="">
+			<div class="modal__container">
+				<div class="modal__close" data-modal-close="">
+					×
+				</div>
+				<div class="modal__content">
+					<div class="modal__title">
+						Выслать повторно
+					</div>
+					<div class="modal__description">
+						Введите E-mail указанный при оплате, и мы вышлем Вам оплаченные товары повторно
+					</div>
+					<form id="callForm">
+						<div class="callBack__input">
+ <input type="email" placeholder="E-mail" name="email" required="">
+						</div>
+ <button type="submit" class="btn btn-default button button--modal">Выслать</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="formBuy__wrapper container">
+		<div class="formBuy__grid">
+			<div class="formBuy__gridPreloader">
+				<span class="placeholder-class">Загрузка билетов...</span>
+			</div>
+			<form class="formBuy__form">
+				<div class="formOrder">
+					<div class="formOrder__firstColumn">
+						<h3 class="formOrder__title">Входной билет</h3>
+						<div class="formOrder__date">
+ <label for="date">Планируемая дата посещения:</label>
+							<!--input type="date" name="date" id="date" readonly-->
+							<div class="controls input-append date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+ <input class="chooseDate__input" size="16" name="date_1" data-selector="inputDate2" placeholder="18.12.2020" type="text" value="<?= date('d.m.Y', time()) ?>" readonly=""> <span class="add-on"><i class="icon-remove"></i></span> <span class="add-on"><i class="icon-th"></i></span>
+							</div>
+						</div>
+						<div class="formOrder__typeTicket">
+ <span class="placeholder-class">Тип билета:</span>
+							<div class="typeTicket__list">
+								<div class="typeTicket__item typeTicket--item" data-ticket="1" data-ticketid="">
+									<div class="typeTicket--item__info">
+										<div class="typeTicket--item__description">
+											<h3 class="typeTicket--item__title">Детский единый билет во все парки </h3>
+											<p class="typeTicket--item__subtitle">
+												Активити, Верёвочный, Интерактивный
+											</p>
+										</div>
+										<p class="typeTicket--item__age">
+											от 4 до 13 включительно
+										</p>
+									</div>
+									<div class="typeTicket--item__select">
+ <span class="typeTicket--item__price"> руб.</span>
+										<div class="typeTicket--item__counter">
+ <button type="button" class="decrease counterBtn" data-direction="minus">-</button> <input type="text" value="0" readonly=""> <button type="button" class="increase counterBtn" data-direction="plus">+</button>
+										</div>
+									</div>
+								</div>
+								<p class="tip">
+									*в веревочный парк допускаются дети с ростом от 120 см.
+								</p>
+								<div class="typeTicket__item typeTicket--item" data-ticket="2" data-ticketid="">
+									<div class="typeTicket--item__info">
+										<div class="typeTicket--item__description">
+											<h3 class="typeTicket--item__title">Детский билет в Активити парк</h3>
+											<p class="typeTicket--item__subtitle">
+												Активити
+											</p>
+										</div>
+										<p class="typeTicket--item__age">
+											от 4 до 13 включительно
+										</p>
+									</div>
+									<div class="typeTicket--item__select">
+ <span class="typeTicket--item__price"> руб.</span>
+										<div class="typeTicket--item__counter" data-step="1" data-min="1" data-max="5">
+ <button type="button" class="decrease">-</button> <input type="text" value="0" readonly=""> <button type="button" class="increase">+</button>
+										</div>
+									</div>
+								</div>
+								<div class="typeTicket__item typeTicket--item" data-ticket="3" data-ticketid="">
+									<div class="typeTicket--item__info">
+										<div class="typeTicket--item__description">
+											<h3 class="typeTicket--item__title">Взрослый билет в Активити парк</h3>
+											<p class="typeTicket--item__subtitle">
+												Активити
+											</p>
+										</div>
+										<p class="typeTicket--item__age">
+											18+
+										</p>
+									</div>
+									<div class="typeTicket--item__select">
+ <span class="typeTicket--item__price"> руб.</span>
+										<div class="typeTicket--item__counter" data-step="1" data-min="1" data-max="5">
+ <button type="button" class="decrease">-</button> <input type="text" value="0" readonly=""> <button type="button" class="increase">+</button>
+										</div>
+									</div>
+								</div>
+								<div class="typeTicket__item typeTicket--item" data-ticket="4" data-ticketid="">
+									<div class="typeTicket--item__info">
+										<div class="typeTicket--item__description">
+											<h3 class="typeTicket--item__title">Взрослый билет во все парки</h3>
+											<p class="typeTicket--item__subtitle">
+												Активити, Верёвочный, Интерактивный
+											</p>
+										</div>
+										<p class="typeTicket--item__age">
+											18+
+										</p>
+									</div>
+									<div class="typeTicket--item__select">
+ <span class="typeTicket--item__price"> руб.</span>
+										<div class="typeTicket--item__counter" data-step="1" data-min="1" data-max="5">
+ <button type="button" class="decrease">-</button> <input type="text" value="0" readonly=""> <button type="button" class="increase">+</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="formOrder__SecondColumn formOrder--SecondColumn">
+						<div class="formOrder--SecondColumn__wrapper">
+							<div class="red-ramka">
+								График работы 01.01.23<br>
+								 с 14-00 до 21-00
+							</div>
+							<div class="formOrder__headingOrder formOrder--headingOrder">
+								<h3 class="formOrder--headingOrder__title">Оформите заказ</h3>
+								<h3 class="formOrder--headingOrder__title formOrder--headingOrder__title--day-off">В этот день наш центр не работает</h3>
+								<p class="formOrder--headingOrder__subtitle">
+									Заполните данные ниже чтобы перейти к оплате билетов
+								</p>
+							</div>
+							<div class="formOrder__mainOrder formOrder--mainOrder">
+ <label for="name">Введите ваше имя:</label> <input type="text" name="name" placeholder="Алексей Алексеев" required=""> <label for="phone">Введите ваш контактный телефон:</label> <input type="tel" name="phone" placeholder="89111111111" required=""> <label for="mail">Введите ваш E-mail:</label> <input type="email" name="mail" placeholder="email@mail.ru" required="">
+							</div>
+						</div>
+						<div class="formOrder__footerOrder formOrder--footerOrder">
+							<div class="formOrder--footerOrder__info">
+								<p class="formOrder--footerOrder__subtitle">
+									Итого к оплате:
+								</p>
+								<div>
+									<h3 class="formOrder--footerOrder__title">Детский единый билет во все парки </h3>
+									<p class="formOrder--footerOrder__count">
+										2 шт.
+									</p>
+								</div>
+							</div>
+ <span class="formOrder--footerOrder__price"><span class="placeholder-class">0</span> руб.</span> <button type="submit" class="formOrder--footerOrder__buyBtn">Купить онлайн</button>
+						</div>
+						<div class="formOrder__konfOrder formOrder--konfOrder">
+							<div class="formOrder--konfOrder__inputs">
+								<div class="formOrder--konfOrder__row">
+ <input type="checkbox" name="buyTicketsKonf" id="buyTicketsKonf" class="customCB" required=""> <label for="buyTicketsKonf"><span class="placeholder-class">Я согласен (-на) с <a href="/upload/policy.pdf" target="_blank">политикой конфиденциальности</a> и <a href="/upload/rules.pdf" target="_blank">правилами покупки электронных билетов</a></span> </label>
+								</div>
+								<div class="formOrder--konfOrder__row">
+ <input type="checkbox" name="getMessageKonf" id="getMessageKonf" class="customCB"> <label for="getMessageKonf"><span class="placeholder-class">Я согласен (-на) с <a href="/upload/soglasie.pdf" target="_blank">правилами получения информационных рассылок</a></span></label>
+								</div>
+							</div>
+							<p class="getMessageKonf__description">
+								 Все локации "Веселого Острова" рассчитаны на вес и рост взрослого человека. Ограничение по весу 120 кг. Гости в возрасте до 14 лет находятся на Острове только в сопровождении взрослых (18+). Все билеты без ограничения по времени посещения (в рамках наших рабочих часов).
+							</p>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<?
+$dayWeekend = array();
+$dayOff = array();
+
+$arSelect = Array("ID", "NAME", "DATE_ACTIVE_FROM", "PROPERTY_TYPE_OF_DAY");
+$arFilter = Array("IBLOCK_ID"=>13, ">=DATE_ACTIVE_FROM"=>date("d.m.Y"));
+$res = CIBlockElement::GetList(Array(), $arFilter, false, Array(), $arSelect);
+while($ob = $res->GetNextElement())
+{
+ 	$arFields = $ob->GetFields(); 
+	if($arFields['PROPERTY_TYPE_OF_DAY_ENUM_ID'] == 10) $dayWeekend[] = $arFields['DATE_ACTIVE_FROM'];
+	if($arFields['PROPERTY_TYPE_OF_DAY_ENUM_ID'] == 12) $dayOff[] = $arFields['DATE_ACTIVE_FROM'];
+}
+?>  
+<script>
+	var dayWeekendPHP = [<?=(count($dayWeekend)> 0 ? "'":"").implode("','", $dayWeekend).(count($dayWeekend)> 0 ? "'":"")?>];
+	var dayOffPHP = [<?=(count($dayOff)> 0 ? "'":"").implode("','", $dayOff).(count($dayOff)> 0 ? "'":"")?>];
+</script>
