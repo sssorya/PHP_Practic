@@ -7,3 +7,6 @@
 <p><?php echo implode('', array_slice(explode('', 
     strip_tags($post['content'], 0, 10)); ?></p>
 <a href="<?php echo $this->base->url."/?id=".$post['id']; ?>" class="btn-primary">Подробнее</a>
+<hr/>
+<?php endforeach; ?>
+<?php require_once('include/temps/footer.php'); ?>
