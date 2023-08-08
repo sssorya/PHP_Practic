@@ -40,3 +40,15 @@ while($tov = $res->fetch())
     print_r($tov);
 	echo '</pre>';
 }
+//////////////////////////
+// Сортировка товара по ID
+//////////////////////////
+$prod = CCatalogProduct::Getlist ([
+		'filter' => ['ID' => 'ASC']
+]);
+
+while($info = $prod->fetch()){
+	echo '<pre>';
+	print_r($info);
+	echo '</pre>';
+}
