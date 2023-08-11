@@ -4,21 +4,19 @@
 $IBLOCK_ID = 33;
 $col = 0;
 $filt = array("IBLOCK_ID"=>$IBLOCK_ID, "DETAIL_PICTURE" => false, "ACTIVE" => "Y");
-$res = CIBlockElement::GetList(array("ID"=>"ASC"), $filt, false, false, array("ID", "NAME"));
+$res = CIBlockElement::GetList(array("ID"=>"ASC"), $filt, false, false, array("ID", "NAME", "CODE"));
 $props = CIBlockElement::GetProperty("IBLOCK_ID", $tov["ID"],array("sort"=>"ASC"));
 
-while($tov = $res->fetch())
-{
-	if($proper = $props->fetch()) 
-	{
-		echo($proper["VALUE"]."<pre>");
-	}
-	//$col++;
-	echo '<br>Порядковый номер - '. $tov['ID'];
+while($tov = $res->fetch()) {
+	$col++;
+	echo 'Общее количество:'. $res->SelectedRowsCount().'<br>';
+	echo '<br>Порядковый номер - '. $col;
 	echo '<pre>';
     print_r($tov);
 	echo '</pre>';
+
 }
+exit;
 /////////////////////////////////
 // товары без дополнительных фото
 /////////////////////////////////
@@ -35,23 +33,27 @@ while($tov = $res->fetch())
 		echo($proper["VALUE"]."<pre>");
 	}
 	$col++;
-	echo '<br>Порядковый номер - '. $col;//$tov['ID'];
+	echo '<br>Порядковый номер - '. $col;
 	echo '<pre>';
     print_r($tov);
 	echo '</pre>';
 }
-//////////////////////////
-// Сортировка товара по ID
-//////////////////////////
-$prod = CCatalogProduct::Getlist ([
-		'filter' => ['ID' => 'ASC']
-]);
-
-while($info = $prod->fetch()){
+///////////////////////////////////////////
+// товары активные привязанные к складу (2) 
+///////////////////////////////////////////
+$sklad = CIBlockElement::GetList(
+			array(),
+			array('IBLOCK_ID'=>33, '<=STORE_AMOUNT'=>7, '>=STORE_AMOUNT'=>5, 'STORE_NUMBER'=>2),
+			false,
+			false,
+			array('ID', 'NAME', 'ACTIVE'=>'Y','IBLOCK_ID')
+								);
+while ($inf = $sklad->fetch()){
 	echo '<pre>';
-	print_r($info);
-	echo '</pre>';
+	print_r($inf);
+	echo 'Кол-во:'. $sklad->SelectedRowsCount().'<br>';
 }
+//////////////////////////////////////////
 //////////////////////////
 // Сортировка товара по ID
 //////////////////////////
@@ -100,4 +102,40 @@ while($ob = $res->GetNextElement()){
 		echo '<pre>';
 		print_r($arProps);
 		echo '</pre>';
+}
+/////////////////////
+/// получить свойства
+/////////////////////
+$IBLOCK_ID = 33;
+$proper = CIBlockProperty::GetList(
+		[
+			"sort" => "asc", 
+			"name" => "asc"
+		], 
+		[
+			//"ACTIVE" => "Y", 
+			"IBLOCK_ID" => $IBLOCK_ID
+		]
+	);
+	while ($propfields = $proper->fetch()) {
+		$ListProps[] = $propfields;
+	}
+	echo '<pre>';
+	print_r($ListProps);
+	echo '</pre>';
+////////////////////////////////////
+/// список всех заказов товара по ID
+////////////////////////////////////
+
+$res = \Bitrix\Sale\Order::getList([
+	'select' => array('ACCOUNT_NUMBER', 'DATE_INSERT', 'DATE_UPDATE', 'DATE_CANCELED', 'PRICE', 'PAYED', 'SEARCH_CONTENT'),
+	'filter' => ['BASKET.PRODUCT_ID' => 210133],
+	//'filter' => ['BASKET.PRODUCT_ID' => 205766 / 210133],
+	'order' => ['ID' => 'ASC']
+]); 
+
+while ($order = $res->fetch()){
+	echo '<pre>';
+	print_r($order);
+	echo '<pre>';
 }
