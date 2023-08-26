@@ -1,13 +1,10 @@
-/////////////////////
+///////////////////////
 // Created by Sssorya /
-/////////////////////
-
-
-
-
+///////////////////////
 ////////////////////////
 // товары без детальной 
 ///////////////////////
+<?
 $IBLOCK_ID = 33;
 $col = 0;
 $filt = array("IBLOCK_ID"=>$IBLOCK_ID, "DETAIL_PICTURE" => false, "ACTIVE" => "Y");
@@ -23,13 +20,10 @@ while($tov = $res->fetch()) {
 	echo '</pre>';
 
 }
-//1739
-//1667
-//1673
-exit;
 /////////////////////////////////
 // товары без дополнительных фото
 /////////////////////////////////
+<?
 $IBLOCK_ID = 33;
 $col = 0;
 $filt = array("IBLOCK_ID"=>$IBLOCK_ID, "MORE_PHOTO" => false, "ACTIVE" => "Y");
@@ -52,6 +46,7 @@ while($tov = $res->fetch())
 ///////////////////////////////////////////
 // товары активные привязанные к складу (2) 
 ///////////////////////////////////////////
+<?
 $sklad = CIBlockElement::GetList(
 			array(),
 			array('IBLOCK_ID'=>33, '<=STORE_AMOUNT'=>7, '>=STORE_AMOUNT'=>5, 'STORE_NUMBER'=>2),
@@ -67,8 +62,9 @@ while ($inf = $sklad->fetch()){
 /////////////////////////////////
 // проверка на измененные товары
 ////////////////////////////////
-	$filt = array(33, "MODIFIED_BY"=>1338);
-	$res = CIBlockElement::GetList(array("ID"=>"ASC"), $filt, false, false, array("ID", "NAME", "modified_by", "TIMESTAMP_X"));
+<?
+$filt = array(33, "MODIFIED_BY"=>1338);
+$res = CIBlockElement::GetList(array("ID"=>"ASC"), $filt, false, false, array("ID", "NAME", "modified_by", "TIMESTAMP_X"));
 
 if($col = $res->SelectedRowsCount())
 	echo 'Товары измененные учетной записью Климов С.Л.:'.' '. $col.' '.'позиций.';
@@ -81,6 +77,7 @@ while($tov = $res->fetch()) {
 //////////////
 // section ALL
 //////////////
+<?
 $IBLOCK_ID = 33;
 $filt = array("IBLOCK_ID"=>$IBLOCK_ID, "DETAIL_PICTURE" => false, "ACTIVE" => "Y");
 $res = CIBlockElement::GetList(array("ID"=>"ASC"), $filt, false, false, array("ID", "NAME", "CODE", "DETAIL_TEXT"));
@@ -96,7 +93,7 @@ while($tov = $res->fetch()) {
 /////////////////////////////////////////////
 /// список всех заказов товара по ID товара /
 /////////////////////////////////////////////
-
+<?
 $res = \Bitrix\Sale\Order::getList([
 	'select' => array('ACCOUNT_NUMBER', 'DATE_INSERT', 'DATE_UPDATE', 'DATE_CANCELED', 'PRICE', 'PAYED', 'SEARCH_CONTENT'),
 	'filter' => ['BASKET.PRODUCT_ID' => 210133],
@@ -110,7 +107,7 @@ while ($order = $res->fetch()){
 	echo '<pre>';
 }
 ////////////////////////////////////////////////////////
-// Сергей Климов - скрипт проверки изменений товаров (?)
+// Сотрудник - скрипт проверки изменений товаров (?)
 ////////////////////////////////////////////////////////
 <?php
 
@@ -130,11 +127,8 @@ while($tov = $res->fetch()) {
 	print_r($arList);
 	echo '</pre>';
 }
-/773
-/797
-/2050 - 9 шт
 ////////////////////////////////////////////////////////
-// Сергей Климов - скрипт проверки изменений категорий (?)
+// Сотрудник - скрипт проверки изменений категорий (?)
 ////////////////////////////////////////////////////////
 	$filt = array(33, "MODIFIED_BY"=>1338);
 	$res = CIBlockElement::GetList(array("order"=>"asc"), $filt, false, false, array("ID", "NAME", "modified_by", "TIMESTAMP_X", "ACTIVE"));
@@ -148,7 +142,7 @@ while($section = $sect->fetch()) {
 	echo '</pre>';
 }
 /211
-/211 - климов
+/211 - сотрудник
 /1 - в црм сервис
 /////////////////////
 /// Весь заказ по ID;
@@ -326,19 +320,9 @@ while ($item = $items->Fetch()) {
 }
 
 ?>
-//////////
-delevery /
-//////////
-DATE_INSERT
-DELIVERY_NAME
-STATUS_ID
-PRICE_DELIVERY
-XML_ID
 /////////
 / ORDER /
 /////////
-PRODUCT_ID
-DISCOUNT_PRICE
 <?php
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
@@ -407,4 +391,3 @@ while($pay = $payment->fetch()){
 	echo '</pre>';
 ?>
 ///
-select * from kisu_data where 'c0499728
